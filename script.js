@@ -95,6 +95,7 @@ function clearTable() {
     while (table.firstChild) {
         table.removeChild(table.lastChild);
     }
+    numCols = 0;
 }
 
 //checks for all cells that has no style attrbute and colors is with the selected color

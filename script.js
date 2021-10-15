@@ -1,10 +1,17 @@
 let numRows = 0;
 let numCols = 0;
 let colorSelected; 
+let table = document.getElementById('grid'); //assigned a global variable for table
 
 //Add a row
 function addR() {
-    alert("Clicked Add Row")
+    var row = table.insertRow();
+    row.insertCell() //inert new row into table
+
+    //populate the new row with the number of columns existing in the table
+    for (let index = 0; index < numCols - 1; index++) {
+        row.insertCell()
+    }
 }
 //Add a column
 function addC() {

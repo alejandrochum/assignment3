@@ -29,11 +29,20 @@ function addC() {
 
 //Remove a row
 function removeR() {
-    alert("Clicked Remove Row")
+    table.deleteRow(-1); //removes last row
 }
 //Remove a column
 function removeC() {
-    alert("Clicked Remove Col")
+    //loops thru the table deleting the last column of each row
+    table.querySelectorAll('tr').forEach(row => row.deleteCell(-1))
+    numCols = table.rows[0].cells.length // updates the number of columns variable
+
+    //if the number of columns is 0, removes all childs of the table, making sure there are no empty rows in the table
+    if(numCols === 0){
+        while(table.firstChild){
+            table.removeChild(table.lastChild);
+        }
+    }
 }
 //sets global var for selected color
 function selected(){

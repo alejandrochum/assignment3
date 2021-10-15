@@ -70,18 +70,37 @@ function selected() {
 }
 
 //color cell on click
-function colorCell(elmnt){
-    elmnt.style.backgroundColor= colorSelected;
+function colorCell(elmnt) {
+    elmnt.style.backgroundColor = colorSelected;
 }
 
+//colors all cell with the selected color
 function fill() {
-
+    //queries thru all elements 'td' and adds the attribute of backgroundColor equals to the colorSelected variable
+    table.querySelectorAll('td').forEach(cell => {
+        cell.style.backgroundColor = colorSelected;
+    })
 }
 
+//clears the color of all cells
 function clearAll() {
-    alert("Clicked Clear All")
+    //queries thru all elements 'td' and removes the style attribute
+    table.querySelectorAll('td').forEach(cell => {
+        cell.removeAttribute('style');
+    })
 }
 
+//removes all cells from the table
+function clearTable() {
+    while (table.firstChild) {
+        table.removeChild(table.lastChild);
+    }
+}
+
+//checks for all cells that has no style attrbute and colors is with the selected color
 function fillU() {
-    alert("Clicked Fill All Uncolored")
+    table.querySelectorAll('td').forEach(cell => {
+        if (!cell.hasAttribute('style')) //checks if cell has style attribute
+            cell.style.backgroundColor = colorSelected;
+    })
 }

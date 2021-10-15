@@ -15,7 +15,16 @@ function addR() {
 }
 //Add a column
 function addC() {
-    alert("Clicked Add Col")
+    //First checls of the table is empty. If empty, adds the first row and a column to it
+    if(table.rows.length === 0){
+        var row = table.insertRow()
+        row.insertCell()
+    }
+    //if not empty, append a new column at the end of each existing row
+    else{
+        table.querySelectorAll('tr').forEach(row => row.insertCell())
+    }
+    numCols = table.rows[0].cells.length  //updates the number of columns
 }
 
 //Remove a row
